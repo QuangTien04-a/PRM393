@@ -7,36 +7,34 @@ class CoreWidgetsDemo extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: const Text('Core Widgets Demo'),
+        title: const Text('Exercise 1 - Core Widgets'),
       ),
-
       body: SingleChildScrollView(
-        padding: const EdgeInsets.all(16),
+        padding: const EdgeInsets.all(24),
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
-
-            // Text
+            // Text widget
             const Text(
               'Flutter UI Fundamentals',
               style: TextStyle(
-                fontSize: 24,
+                fontSize: 28,
                 fontWeight: FontWeight.bold,
               ),
             ),
 
-            const SizedBox(height: 20),
+            const SizedBox(height: 24),
 
-            // Icon
+            // Icon widget
             const Icon(
               Icons.flutter_dash,
-              size: 60,
+              size: 70,
               color: Colors.blue,
             ),
 
-            const SizedBox(height: 20),
+            const SizedBox(height: 24),
 
-            // Image
+            // Image.network widget
             ClipRRect(
               borderRadius: BorderRadius.circular(12),
               child: Image.network(
@@ -44,10 +42,8 @@ class CoreWidgetsDemo extends StatelessWidget {
                 width: double.infinity,
                 height: 500,
                 fit: BoxFit.cover,
-                filterQuality: FilterQuality.high,
                 errorBuilder: (context, error, stackTrace) {
                   return Container(
-                    width: double.infinity,
                     height: 500,
                     alignment: Alignment.center,
                     color: Colors.grey.shade200,
@@ -59,37 +55,38 @@ class CoreWidgetsDemo extends StatelessWidget {
                 },
               ),
             ),
-            // Card + ListTile
+
+            const SizedBox(height: 24),
+
+            // Card containing a ListTile
             Card(
               elevation: 4,
               child: ListTile(
+                contentPadding: const EdgeInsets.all(16),
                 leading: const Icon(
                   Icons.person,
                   color: Colors.blue,
+                  size: 32,
                 ),
-
                 title: const Text(
                   'Student Information',
+                  style: TextStyle(
+                    fontSize: 18,
+                    fontWeight: FontWeight.bold,
+                  ),
                 ),
-
                 subtitle: const Text(
                   'This is a ListTile inside a Card.',
                 ),
-
                 trailing: const Icon(
                   Icons.arrow_forward,
                 ),
-
-                // Khi bấm vào ListTile
                 onTap: () {
                   showDialog(
                     context: context,
                     builder: (context) {
                       return AlertDialog(
-                        title: const Text(
-                          'Student Information',
-                        ),
-
+                        title: const Text('Student Information'),
                         content: const Column(
                           mainAxisSize: MainAxisSize.min,
                           crossAxisAlignment: CrossAxisAlignment.start,
@@ -105,7 +102,6 @@ class CoreWidgetsDemo extends StatelessWidget {
                             ),
                           ],
                         ),
-
                         actions: [
                           TextButton(
                             onPressed: () {

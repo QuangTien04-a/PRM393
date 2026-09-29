@@ -1,5 +1,9 @@
 import 'package:flutter/material.dart';
 import 'core_widgets_demo.dart';
+import 'input_controls_demo.dart';
+import 'layout_demo.dart';
+import 'scaffold_theme_demo.dart';
+import 'ui_errors_demo.dart';
 
 void main() {
   runApp(const Lab4App());
@@ -12,7 +16,11 @@ class Lab4App extends StatelessWidget {
   Widget build(BuildContext context) {
     return MaterialApp(
       debugShowCheckedModeBanner: false,
-      title: 'Lab 4',
+      title: 'Lab 4 - Flutter UI Fundamentals',
+      theme: ThemeData(
+        colorScheme: ColorScheme.fromSeed(seedColor: Colors.blue),
+        useMaterial3: true,
+      ),
       home: const ExerciseMenu(),
     );
   }
@@ -37,62 +45,74 @@ class ExerciseMenu extends StatelessWidget {
               fontWeight: FontWeight.bold,
             ),
           ),
-
           const SizedBox(height: 20),
 
-          // Exercise 1 - Bấm được
           ElevatedButton(
             onPressed: () {
               Navigator.push(
                 context,
                 MaterialPageRoute(
-                  builder: (context) => const CoreWidgetsDemo(),
+                  builder: (_) => const CoreWidgetsDemo(),
                 ),
               );
             },
-            child: const Text(
-              'Exercise 1 - Core Widgets',
-            ),
+            child: const Text('Exercise 1 - Core Widgets'),
           ),
 
           const SizedBox(height: 12),
 
-          // Exercise 2 - Chưa làm
-          const ElevatedButton(
-            onPressed: null,
-            child: Text(
-              'Exercise 2 - Input Widgets',
-            ),
+          ElevatedButton(
+            onPressed: () {
+              Navigator.push(
+                context,
+                MaterialPageRoute(
+                  builder: (_) => const InputControlsDemo(),
+                ),
+              );
+            },
+            child: const Text('Exercise 2 - Input Widgets'),
           ),
 
           const SizedBox(height: 12),
 
-          // Exercise 3 - Chưa làm
-          const ElevatedButton(
-            onPressed: null,
-            child: Text(
-              'Exercise 3 - Layout Composition',
-            ),
+          ElevatedButton(
+            onPressed: () {
+              Navigator.push(
+                context,
+                MaterialPageRoute(
+                  builder: (_) => const LayoutDemo(),
+                ),
+              );
+            },
+            child: const Text('Exercise 3 - Layout Basics'),
           ),
 
           const SizedBox(height: 12),
 
-          // Exercise 4 - Chưa làm
-          const ElevatedButton(
-            onPressed: null,
-            child: Text(
-              'Exercise 4 - Scaffold',
-            ),
+          ElevatedButton(
+            onPressed: () {
+              Navigator.push(
+                context,
+                MaterialPageRoute(
+                  builder: (_) => const ScaffoldThemeDemo(),
+                ),
+              );
+            },
+            child: const Text('Exercise 4 - Scaffold & Theme'),
           ),
 
           const SizedBox(height: 12),
 
-          // Exercise 5 - Chưa làm
-          const ElevatedButton(
-            onPressed: null,
-            child: Text(
-              'Exercise 5 - ThemeData',
-            ),
+          ElevatedButton(
+            onPressed: () {
+              Navigator.push(
+                context,
+                MaterialPageRoute(
+                  builder: (_) => const UiErrorsDemo(),
+                ),
+              );
+            },
+            child: const Text('Exercise 5 - Fix UI Errors'),
           ),
         ],
       ),
